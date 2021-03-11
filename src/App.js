@@ -1,4 +1,5 @@
 import './App.css';
+import firebase from './firebase';
 
 // Pseudo Code
 // 1. Create Poll Component
