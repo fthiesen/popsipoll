@@ -2,7 +2,7 @@ import './App.css';
 
 // Pseudo Code
 // 1. Create Poll Component
-// A form - input boxes to get a question & options(yes / no) & pincode
+// A form - input boxes to get a question & options(yes / no) 
 // when creator click submit button -> store the info to firebase and retrieve unique key from firebase entry
 //                  : onChange()- useState to store data which is from input boxes 
 //                  : firebase.js -> access to firebase
@@ -19,7 +19,7 @@ import './App.css';
 //        : user select one of the options (yes or no) , submit (answer required) -> the app retrieves current voting number and add one and save it (yes++ or no++)
 //        
 // 3. Tracking Component
-// creator can see the result of the poll
+// creator and voters can see the result of the poll
 //            firebase data structure
 //               -eifweoifhowiefhweof--wdw (polling booth)
 //                  - question
@@ -27,9 +27,8 @@ import './App.css';
 //                      - yes : 0
 //                      - no : 0
 //                      - stretched goal options : 0
-//                  - pincode
 //                  - number of voters : 0
-//        : when creator clicks result button -> ask password -> match with pincode from firebase -> display total number of voters / yes/no numbers
+//        : when creator or users click result button ->  display total number of voters / yes/no numbers
 // 4. others : Nav, Footer
 
 
