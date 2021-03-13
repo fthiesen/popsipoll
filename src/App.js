@@ -1,7 +1,7 @@
-import './App.scss';
-import firebase from './firebase';
-import Header from './Header';
-import Footer from './Footer';
+import "./App.scss";
+import firebase from "./firebase";
+import Header from "./Header";
+import Footer from "./Footer";
 
 // Pseudo Code
 // 1. Create Poll Component
@@ -10,14 +10,14 @@ import Footer from './Footer';
 //                  : onChange()- useState to store data which is from input boxes 
 //                  : firebase.js -> access to firebase
 //                  : onSubmit() - store data from useState to firebase
-//                  : useEffect ( on('value') -> so we can get unikey key from firebase right away to generate unique url)
+//                  : useEffect ( on("value") -> so we can get unikey key from firebase right away to generate unique url)
 //                  : url +  uniquekey ie. poll.app/[uniquekey from firebase] -> creator will share this to voters
 //
 // 2. Voting Component
 // users go to a poll booth with url + uniquekey
 // display polling booth by
 //        : grab uniquekey from the url 
-//        : search the poll and call values by the uniquekey - ref(uniquekey).child('question)/.child(options)
+//        : search the poll and call values by the uniquekey - ref(uniquekey).child("question)/.child(options)
 //        : display polling booth form (yes or no radiobutton) - with the data from firebase
 //        : user select one of the options (yes or no) , submit (answer required) -> the app retrieves current voting number and add one and save it (yes++ or no++)
 //        
@@ -38,9 +38,40 @@ import Footer from './Footer';
 
 
 function App() {
+
+
+  const handleSubmit = () => {
+
+  }
+
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
+      <main className="wrapper">
+        <section className="create-poll">
+          <h1>Create A Poll</h1>
+          <form>
+            <div>
+              <label htmlFor="poll-title">Poll Title</label>
+              <input name="poll-title" id="poll-title" type="text"/>
+            </div>
+            <div>
+              <label htmlFor="poll-question">Question</label>
+              <input name="poll-question" id="poll-question" type="text" />
+            </div>
+            <div>
+              <label htmlFor="option1">Option1</label>
+              <input type="text" name="option1" id="option1" placeholder="Yes" value="Yes" disabled/>
+            </div>
+            <div>
+              <label htmlFor="option2">Option1</label>
+              <input type="text" name="option2" id="option2" placeholder="No" value="No" disabled/>
+            </div>
+            <button onSubmit={handleSubmit}>Create Poll</button>
+          </form>
+        </section>
+      </main>
+      
       <Footer />
     </div>
   );

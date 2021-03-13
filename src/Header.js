@@ -1,6 +1,14 @@
 function Header() {
   return (
-    <h1>Anonymous Vote</h1>
+    <header className="wrapper">
+      <h2>Anonymous Vote</h2> 
+      <nav>
+        <ul>
+          <li>Poll Booths</li>
+          <li>Create Poll</li>
+        </ul>
+      </nav>
+    </header>
   )
 }
 

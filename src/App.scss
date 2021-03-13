@@ -5,3 +5,96 @@
 html {
   font-size: 62.5%;
 }
+
+body {
+  font-size: 1.6rem;
+  font-family: $body;
+  background-color: $yellow;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 100px 1fr 50px;
+  // grid-template-areas: "header" "main" "footer";
+  height: 100vh;
+}
+
+header {
+  background-color: $yellow;
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+  }
+}
+
+.wrapper {
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.create-poll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+  box-shadow: -10px 10px $orange;
+  padding: 5% 10%;
+  border-radius: 10px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      margin: 10px;
+    }
+    
+    label {
+      width: 30%;
+    }
+
+    input {
+      width: 70%;
+      margin: 0 10px;
+      border: 2px solid $yellow;
+      background-color: $orange;
+    }
+
+    
+  }
+}
+
+button {
+
+      margin: 20px;
+      padding: 10px 30px;
+      background-color: $yellow;
+      border: none;
+      border-radius: 5px;
+    }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red;
+
+  p{
+    
+    
+  }
+}
