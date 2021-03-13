@@ -51,22 +51,14 @@ function App() {
         <section className="create-poll">
           <h1>Create A Poll</h1>
           <form>
-            <div>
-              <label htmlFor="poll-title">Poll Title</label>
-              <input name="poll-title" id="poll-title" type="text"/>
-            </div>
-            <div>
-              <label htmlFor="poll-question">Question</label>
-              <input name="poll-question" id="poll-question" type="text" />
-            </div>
-            <div>
-              <label htmlFor="option1">Option1</label>
-              <input type="text" name="option1" id="option1" placeholder="Yes" value="Yes" disabled/>
-            </div>
-            <div>
-              <label htmlFor="option2">Option1</label>
-              <input type="text" name="option2" id="option2" placeholder="No" value="No" disabled/>
-            </div>
+              <label htmlFor="poll-title" className="sr-only">Poll Title</label>
+              <input name="poll-title" id="poll-title" type="text" placeholder="Poll Title"/>
+              <label htmlFor="poll-question" className="sr-only">Question</label>
+              <input name="poll-question" id="poll-question" type="text" placeholder="Question"/>
+              <label htmlFor="option1" className="sr-only">Option1</label>
+              <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value="Yes" disabled/>
+              <label htmlFor="option2" className="sr-only">Option1</label>
+              <input type="text" name="option2" id="option2" className="option" placeholder="No" value="No" disabled/>
             <button onSubmit={handleSubmit}>Create Poll</button>
           </form>
         </section>

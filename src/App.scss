@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3.5rem;
+  margin-bottom: 30px;
 }
 
 .container {
@@ -54,47 +55,43 @@ header {
   border-radius: 10px;
 
   form {
-    display: flex;
-    flex-direction: column;
+    max-width: 440px;
+    display: flex;  
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
-    div {
-      margin: 10px;
+    h1 {
+      text-align: center;
     }
     
-    label {
-      width: 30%;
-    }
-
     input {
-      width: 70%;
-      margin: 0 10px;
+      width: 100%;
+      margin-bottom: 10px;
       border: 2px solid $yellow;
       background-color: $orange;
+      border-radius: 5px;
+      padding: 10px;
     }
 
+    .option {
+      background-color: rgba(255, 179, 150, 0.5);
+    }
     
   }
 }
 
 button {
-
-      margin: 20px;
-      padding: 10px 30px;
-      background-color: $yellow;
-      border: none;
-      border-radius: 5px;
-    }
+  margin: 20px;
+  padding: 10px 30px;
+  background-color: $yellow;
+  border: none;
+  border-radius: 5px;
+}
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $red;
-
-  p{
-    
-    
-  }
 }
