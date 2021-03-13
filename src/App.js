@@ -2,6 +2,10 @@ import "./App.scss";
 import firebase from "./firebase";
 import Header from "./Header";
 import Footer from "./Footer";
+import CreatePoll from './CreatePoll';
+import SharePoll from './SharePoll';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // Pseudo Code
 // 1. Create Poll Component
@@ -34,38 +38,50 @@ import Footer from "./Footer";
 //        : when creator or users click result button ->  display total number of voters / yes/no numbers
 // 4. others : Nav, Footer
 
-
-
-
 function App() {
 
+  const [pollsArray, setPollsArray] = useState([]);
 
-  const handleSubmit = () => {
+  const [formFields, setFormFields] = useState({title: '', question: '', option1: 'yes', option2: 'no'});
 
-  }
+  
+
+  // useEffect(() => {
+
+  //   const dbRef = firebase.database().ref('polls');
+
+  //   dbRef.on('value', (data) => {
+
+  //     const pollData = data.val();
+
+  //     const polls = [];
+
+  //     for (let pollKey in pollData) {
+  //       polls.push({
+  //         uniqueKey: pollKey,
+  //         title: pollData[pollKey]
+  //       });
+  //     }
+
+  //     setPollsArray(polls);
+
+  //   })
+
+  // }, [])
+  
 
   return (
-    <div className="App container">
-      <Header />
-      <main className="wrapper">
-        <section className="create-poll">
-          <h1>Create A Poll</h1>
-          <form>
-              <label htmlFor="poll-title" className="sr-only">Poll Title</label>
-              <input name="poll-title" id="poll-title" type="text" placeholder="Poll Title"/>
-              <label htmlFor="poll-question" className="sr-only">Question</label>
-              <input name="poll-question" id="poll-question" type="text" placeholder="Question"/>
-              <label htmlFor="option1" className="sr-only">Option1</label>
-              <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value="Yes" disabled/>
-              <label htmlFor="option2" className="sr-only">Option1</label>
-              <input type="text" name="option2" id="option2" className="option" placeholder="No" value="No" disabled/>
-            <button onSubmit={handleSubmit}>Create Poll</button>
-          </form>
-        </section>
-      </main>
-      
-      <Footer />
-    </div>
+    <Router>
+      <div className="App container">
+        <Header />
+        <main className="wrapper">
+          <Route exact path="/" render= {() => <CreatePoll formFields={formFields} setFormFields={setFormFields} /> } />
+          {/* <CreatePoll formFields={formFields} setFormFields={setFormFields}/> */}
+          <Route path="/sharepoll" render= {() => <SharePoll uniqueKey={formFields.uniqueKey} />} />
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

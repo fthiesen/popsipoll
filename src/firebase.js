@@ -10,6 +10,7 @@ import 'firebase/database';
     messagingSenderId: "493724375810",
     appId: "1:493724375810:web:eaabc65a8b686c8628801b"
     };
+    
   // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
