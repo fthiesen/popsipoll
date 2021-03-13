@@ -13,7 +13,7 @@ function CreatePoll(props) {
     
         const pollKey = firebaseReturn.key;
 
-        setFormFields({...formFields, uniqueKey: [pollKey]});
+        setFormFields({...formFields, 'uniqueKey': pollKey});
 
         console.log(formFields);
     

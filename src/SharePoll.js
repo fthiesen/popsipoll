@@ -1,5 +1,5 @@
 function SharePoll(props) {
-    console.log(props.uniqueKey);
+    // console.log(props.uniqueKey);
     return (
         <section>
             <h1>Congrats!</h1>

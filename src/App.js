@@ -42,7 +42,7 @@ function App() {
 
   const [pollsArray, setPollsArray] = useState([]);
 
-  const [formFields, setFormFields] = useState({title: '', question: '', option1: 'yes', option2: 'no'});
+  const [formFields, setFormFields] = useState({title: '', question: '', option1: 'yes', option2: 'no', uniqueKey: ''});
 
   
 
