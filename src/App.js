@@ -1,5 +1,7 @@
-import './App.css';
+import './App.scss';
 import firebase from './firebase';
+import Header from './Header';
+import Footer from './Footer';
 
 // Pseudo Code
 // 1. Create Poll Component
@@ -38,7 +40,8 @@ import firebase from './firebase';
 function App() {
   return (
     <div className="App">
-      
+      <Header />
+      <Footer />
     </div>
   );
 }
