@@ -8,7 +8,6 @@ function VotePoll(props) {
 
     const key = props.match.params.uniqueKey;
 
-    //handle error here
     const dbRef = firebase.database().ref("polls").child(key);
 
     useEffect(() => {
@@ -45,15 +44,25 @@ function VotePoll(props) {
 
     return (
         <section className="poll">
-            <h1>{poll.title}</h1>
-            <form onSubmit={handleSubmit}>
-                <h2>{poll.question}</h2>
-                    <label htmlFor="option1">Yes</label>
-                    <input type="radio" id="option1" name="option" value="Yes" required onChange={handleChange} />
-                    <label htmlFor="option2">No</label>
-                    <input type="radio" id="option2" name="option" value="No" required onChange={handleChange}/>
-                <button>Vote</button>
-            </form>
+            {
+                !poll
+                ? <h1>Sorry! Poll not found.</h1>
+                : <>
+                <h1>{poll.title}</h1> 
+                <form onSubmit={handleSubmit}>
+                    <h2>{poll.question}</h2>
+                        <div className="radio">
+                            <input type="radio" id="option1" name="option" value="Yes" required onChange={handleChange} />
+                            <label htmlFor="option1">Yes</label>
+                        </div>
+                        <div className="radio">
+                            <input type="radio" id="option2" name="option" value="No" required onChange={handleChange}/>
+                            <label htmlFor="option2">No</label>
+                        </div>
+                    <button>Vote</button>
+                </form>
+                </>
+            }           
         </section>
     )
 }

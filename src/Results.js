@@ -15,19 +15,28 @@ function Results(props) {
         })
     }, []);
     
-    const totalCount = poll.Yes + poll.No;
+    let totalCount;
+    if (poll) {
+        totalCount = poll.Yes + poll.No;
+    }
 
     return (
         <section className="poll">
-            <h1>{poll.title}</h1>
-            <p>Thank you for voting!</p>
-            <div className="results">
-                <h3>Results</h3>
-                <h4>Number of Voters: {totalCount}</h4>
-                <h4>{poll.question}</h4>
-                <p>Yes: {poll.Yes}</p>
-                <p>No: {poll.No}</p>
-            </div>
+            {
+                !poll
+                ? <h1>Sorry! Poll not found.</h1>
+                : <>
+                <h1>{poll.title}</h1> 
+                <h2>Thank you for voting!</h2>
+                <div className="results">
+                    <h3>Results</h3>
+                    <p><span className="bold">Number of Voters:</span> {totalCount}</p>
+                    <p><span className="bold">{poll.question}</span></p>
+                    <p>Yes: {poll.Yes}</p>
+                    <p>No: {poll.No}</p>
+                </div>
+                </>
+            }
         </section>
     )
 }

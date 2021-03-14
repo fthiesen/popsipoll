@@ -9,13 +9,20 @@ function SharePoll(props) {
         document.execCommand("copy");
     }
 
+    const redirect = () => {
+        window.location.replace(newUrl);
+    }
+
     return (
         <section className="poll">
             <h1>Congrats!</h1>
             <h2>Your poll was created successfully</h2>
             <p>Share your poll with friends:</p>
-            <input readOnly type="text" value={newUrl} id="newUrl"/>
-            <button onClick={copyUrl}>Clipboard</button>
+            <input className="url" readOnly type="text" value={newUrl} id="newUrl"/>
+            <div>
+                <button onClick={copyUrl}>Copy URL</button>
+                <button onClick={redirect}>View Poll</button>
+            </div>
         </section>
 
     )

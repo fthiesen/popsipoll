@@ -30,9 +30,9 @@ function CreatePoll(props) {
             <h1>Create A Poll</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title" className="sr-only">Poll Title</label>
-                <input name="title" id="title" type="text" placeholder="Poll Title" onChange={handleChange} value={formFields.title} />
+                <input name="title" id="title" type="text" placeholder="Poll Title" onChange={handleChange} value={formFields.title} required/>
                 <label htmlFor="question" className="sr-only">Question</label>
-                <input name="question" id="question" type="text" placeholder="Question" onChange={handleChange} value={formFields.question} />
+                <input name="question" id="question" type="text" placeholder="Question" onChange={handleChange} value={formFields.question} required />
                 <label htmlFor="option1" className="sr-only">Option1</label>
                 <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value="Yes" disabled />
                 <label htmlFor="option2" className="sr-only">Option1</label>
