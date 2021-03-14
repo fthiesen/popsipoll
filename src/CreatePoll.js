@@ -1,37 +1,45 @@
 import firebase from 'firebase';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import SharePoll from './SharePoll';
 
 function CreatePoll(props) {
 
-    const {formFields, setFormFields} = props;
+    const { formFields, setFormFields } = props;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         const dbRef = firebase.database().ref('polls');
-    
+
         const firebaseReturn = dbRef.push(formFields);
-    
+
         const pollKey = firebaseReturn.key;
 
-        setFormFields({...formFields, 'uniqueKey': pollKey});
+        dbRef.on('value', (data) => {
+            window.location.replace(`/sharepoll/${pollKey}`);
+        })
 
-        console.log(formFields);
-    
+        // setFormFields({ ...formFields });
+
+        console.log(pollKey);
+
+        // redirectRoute();
+
         // // console.log(pollKey);
 
-        // window.location.replace('/sharepoll');
-    
+        //
+
         // setPollsArray([]);
     }
 
     const handleChange = (e) => {
 
-        setFormFields({...formFields, [e.target.name]: e.target.value});
+        setFormFields({ ...formFields, [e.target.name]: e.target.value });
 
     }
 
     return (
-        <section className="create-poll">
+        <section className="poll">
             <h1>Create A Poll</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title" className="sr-only">Poll Title</label>

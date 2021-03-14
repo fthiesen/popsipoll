@@ -44,7 +44,7 @@ header {
   margin: 0 auto;
 }
 
-.create-poll {
+.poll {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,13 +56,15 @@ header {
 
   form {
     max-width: 440px;
-    display: flex;  
+    display: flex; 
+    flex-direction: column; 
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
-    h1 {
-      text-align: center;
+
+    h2 {
+      
     }
     
     input {

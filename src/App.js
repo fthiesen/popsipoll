@@ -6,6 +6,7 @@ import CreatePoll from './CreatePoll';
 import SharePoll from './SharePoll';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import VotePoll from "./VotePoll";
 
 // Pseudo Code
 // 1. Create Poll Component
@@ -42,7 +43,7 @@ function App() {
 
   const [pollsArray, setPollsArray] = useState([]);
 
-  const [formFields, setFormFields] = useState({title: '', question: '', option1: 'yes', option2: 'no', uniqueKey: ''});
+  const [formFields, setFormFields] = useState({title: '', question: '', option1: 'yes', option2: 'no'});
 
   
 
@@ -76,8 +77,8 @@ function App() {
         <Header />
         <main className="wrapper">
           <Route exact path="/" render= {() => <CreatePoll formFields={formFields} setFormFields={setFormFields} /> } />
-          {/* <CreatePoll formFields={formFields} setFormFields={setFormFields}/> */}
-          <Route path="/sharepoll" render= {() => <SharePoll uniqueKey={formFields.uniqueKey} />} />
+          <Route path="/sharepoll/:uniqueKey" component={SharePoll} />
+          <Route path="/votepoll/:uniqueKey" component={VotePoll} />
         </main>
         <Footer />
       </div>
