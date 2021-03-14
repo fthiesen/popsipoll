@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
 import SharePoll from './SharePoll';
 
 function CreatePoll(props) {
@@ -47,9 +48,9 @@ function CreatePoll(props) {
                 <label htmlFor="question" className="sr-only">Question</label>
                 <input name="question" id="question" type="text" placeholder="Question" onChange={handleChange} value={formFields.question} />
                 <label htmlFor="option1" className="sr-only">Option1</label>
-                <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value="Yes" disabled />
+                <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value="Yes" disabled/>
                 <label htmlFor="option2" className="sr-only">Option1</label>
-                <input type="text" name="option2" id="option2" className="option" placeholder="No" value="No" disabled />
+                <input type="text" name="option2" id="option2" className="option" placeholder="No" value="No" disabled/>
                 <button>Create Poll</button>
             </form>
         </section>
