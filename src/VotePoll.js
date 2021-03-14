@@ -5,6 +5,7 @@ function VotePoll(props) {
 
     const [poll, setPoll] = useState("");
     const [answers, setAnswers] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
     const key = props.match.params.uniqueKey;
 
@@ -14,8 +15,8 @@ function VotePoll(props) {
 
         dbRef.once('value', (data) => {
             setPoll(data.val());
+            setIsLoading(false);
         })
-
     }, []);
 
     const handleSubmit = (e) => {
@@ -45,23 +46,25 @@ function VotePoll(props) {
     return (
         <section className="poll">
             {
-                !poll
-                ? <h1>Sorry! Poll not found.</h1>
-                : <>
-                <h1>{poll.title}</h1> 
-                <form onSubmit={handleSubmit}>
-                    <h2>{poll.question}</h2>
-                        <div className="radio">
-                            <input type="radio" id="option1" name="option" value="Yes" required onChange={handleChange} />
-                            <label htmlFor="option1">Yes</label>
-                        </div>
-                        <div className="radio">
-                            <input type="radio" id="option2" name="option" value="No" required onChange={handleChange}/>
-                            <label htmlFor="option2">No</label>
-                        </div>
-                    <button>Vote</button>
-                </form>
-                </>
+                isLoading ? <h2>Loading poll...</h2>
+                :
+                    !poll
+                    ? <h1>Sorry! Poll not found.</h1>
+                    : <>
+                    <h1>{poll.title}</h1> 
+                    <form onSubmit={handleSubmit}>
+                        <h2>{poll.question}</h2>
+                            <div className="radio">
+                                <input type="radio" id="option1" name="option" value="Yes" required onChange={handleChange} />
+                                <label htmlFor="option1">Yes</label>
+                            </div>
+                            <div className="radio">
+                                <input type="radio" id="option2" name="option" value="No" required onChange={handleChange}/>
+                                <label htmlFor="option2">No</label>
+                            </div>
+                        <button>Vote</button>
+                    </form>
+                    </>
             }           
         </section>
     )
