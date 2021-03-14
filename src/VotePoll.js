@@ -22,31 +22,25 @@ function VotePoll(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
     
-        // console.log(poll);
-        
-        let answerCount = poll[answers];
+        const copiedPoll = {...poll};
 
+        let answerCount = poll[answers];
         answerCount++;
 
-        // console.log(answerCount);
-        
+        copiedPoll[answers] = answerCount;
+
         const dbRef = firebase.database().ref("polls").child(key);
+        dbRef.set(copiedPoll);
 
-        console.log(dbRef);
-
-        console.log(key);
-
-        // setPoll(answerCount);
-
-        // dbRef.update({answers: answerCount});
-
+        console.log(`/results/${key}`);
+        dbRef.on('value', () => {
+            window.location.replace(`/results/${key}`);
+        });
 
     }
 
     const handleChange = (e) => {
         setAnswers(e.target.value);
-
-
     }
 
     return (

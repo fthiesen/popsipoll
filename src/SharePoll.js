@@ -1,5 +1,4 @@
 function SharePoll(props) {
-    // console.log(props.uniqueKey);
 
     const baseUrl = window.location.origin;
     const newUrl = baseUrl + "/votepoll/" + props.match.params.uniqueKey;
