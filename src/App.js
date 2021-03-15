@@ -11,24 +11,14 @@ import Results from "./Results";
 
 function App() {
 
-  const [formFields, setFormFields] = useState({title: '', question: '', answers: [
-    {
-      title: "",
-      votes: 0
-    },
-    {
-      title: "",
-      votes: 0
-    }
-
-  ]});
+  
 
   return (
     <Router>
       <div className="App container">
         <Header />
         <main className="wrapper">
-          <Route exact path="/" render= {() => <CreatePoll formFields={formFields} setFormFields={setFormFields} /> } />
+          <Route exact path="/" component={CreatePoll} />
           <Route path="/sharepoll/:uniqueKey" component={SharePoll} />
           <Route path="/votepoll/:uniqueKey" component={VotePoll} />
           <Route path="/results/:uniqueKey" component={Results} />
