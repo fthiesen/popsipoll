@@ -8,16 +8,16 @@ function VotePoll(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     const key = props.match.params.uniqueKey;
-
-    const dbRef = firebase.database().ref("polls").child(key);
-
+    
     useEffect(() => {
+    
+        const dbRef = firebase.database().ref("polls").child(key);
 
         dbRef.once('value', (data) => {
             setPoll(data.val());
             setIsLoading(false);
         })
-    }, []);
+    }, [props.match.params]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -6,16 +6,17 @@ function Results(props) {
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
-    const key = props.match.params.uniqueKey;
-
-    const dbRef = firebase.database().ref("polls").child(key);
-
+    
     useEffect(() => {   
+        const key = props.match.params.uniqueKey;
+        
+        const dbRef = firebase.database().ref("polls").child(key);
+        
         dbRef.once('value', (data) => {
             setPoll(data.val());
             setIsLoading(false);
         })
-    }, []);
+    }, [props.match.params]);
     
     let totalCount;
     if (poll) {

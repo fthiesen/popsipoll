@@ -11,7 +11,17 @@ import Results from "./Results";
 
 function App() {
 
-  const [formFields, setFormFields] = useState({title: '', question: '', Yes: 0, No: 0});
+  const [formFields, setFormFields] = useState({title: '', question: '', answers: [
+    {
+      title: "",
+      votes: 0
+    },
+    {
+      title: "",
+      votes: 0
+    }
+
+  ]});
 
   return (
     <Router>
