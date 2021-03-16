@@ -21,13 +21,19 @@ function VotePoll(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         const copiedPoll = {...poll};
+        let answerCount = 0;
 
-        let answerCount = poll[answers];
-        answerCount++;
-
-        copiedPoll[answers] = answerCount;
+        if(answers === "option1") {
+            answerCount = poll.answers.option1.votes;
+            answerCount++;
+            copiedPoll.answers.option1.votes = answerCount;
+        }else {
+            answerCount = poll.answers.option2.votes;
+            answerCount++;
+            copiedPoll.answers.option2.votes = answerCount;
+        }
 
         const dbRef = firebase.database().ref("polls").child(key);
         dbRef.set(copiedPoll);
@@ -40,7 +46,7 @@ function VotePoll(props) {
     }
 
     const handleChange = (e) => {
-        setAnswers(e.target.value);
+        setAnswers(e.target.id);
     }
 
     return (
@@ -55,12 +61,12 @@ function VotePoll(props) {
                     <form onSubmit={handleSubmit}>
                         <h2>{poll.question}</h2>
                             <div className="radio">
-                                <input type="radio" id="option1" name="option" value="Yes" required onChange={handleChange} />
-                                <label htmlFor="option1">Yes</label>
+                                <input type="radio" id="option1" name="option" value={poll.answers.option1.title} required onChange={handleChange} />
+                                <label htmlFor="option1">{poll.answers.option1.title}</label>
                             </div>
                             <div className="radio">
-                                <input type="radio" id="option2" name="option" value="No" required onChange={handleChange}/>
-                                <label htmlFor="option2">No</label>
+                                <input type="radio" id="option2" name="option" value={poll.answers.option2.title} required onChange={handleChange}/>
+                                <label htmlFor="option2">{poll.answers.option2.title}</label>
                             </div>
                         <button>Vote</button>
                     </form>
