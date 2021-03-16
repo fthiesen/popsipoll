@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import VotePoll from "./VotePoll";
 import Results from "./Results";
+import PollBooths from "./PollBooths";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/sharepoll/:uniqueKey" component={SharePoll} />
           <Route path="/votepoll/:uniqueKey" component={VotePoll} />
           <Route path="/results/:uniqueKey" component={Results} />
+          <Route path="/pollbooths" component={PollBooths} />
         </main>
         <Footer />
       </div>

@@ -190,6 +190,15 @@ main {
       margin-bottom: 10px;
     }
   }
+  .pollBooth {
+    .link {
+      text-decoration: none;
+      color: $grey;
+    }
+    h2:hover {
+      font-size: 2.3rem;
+    }
+  }
 }
 
 button {

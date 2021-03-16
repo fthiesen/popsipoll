@@ -7,7 +7,7 @@ function Header() {
       <h2><img className="logo" src={logo} alt="popsicle logo"/> Popsipoll</h2> 
       <nav>
         <ul>
-          <li><Link to="/">Poll Booths</Link></li>
+          <li><Link to={`/pollbooths`}>Poll Booths</Link></li>
           <li><Link to="/">Create Poll</Link></li>
         </ul>
       </nav>
