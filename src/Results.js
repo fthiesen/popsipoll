@@ -6,20 +6,21 @@ function Results(props) {
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
-    const key = props.match.params.uniqueKey;
-
-    const dbRef = firebase.database().ref("polls").child(key);
-
+    
     useEffect(() => {   
+        const key = props.match.params.uniqueKey;
+        
+        const dbRef = firebase.database().ref("polls").child(key);
+        
         dbRef.once('value', (data) => {
             setPoll(data.val());
             setIsLoading(false);
         })
-    }, []);
+    }, [props.match.params]);
     
     let totalCount;
     if (poll) {
-        totalCount = poll.Yes + poll.No;
+        totalCount = poll.answers.option1.votes + poll.answers.option2.votes;
     }
 
     return (
@@ -36,8 +37,8 @@ function Results(props) {
                         <h3>Results</h3>
                         <p><span className="bold">Number of Voters:</span> {totalCount}</p>
                         <p><span className="bold">{poll.question}</span></p>
-                        <p>Yes: {poll.Yes}</p>
-                        <p>No: {poll.No}</p>
+                        <p>{poll.answers.option1.title}: {poll.answers.option1.votes}</p>
+                        <p>{poll.answers.option2.title}: {poll.answers.option2.votes}</p>
                     </div>
                     </>
             }
