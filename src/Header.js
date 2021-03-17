@@ -4,7 +4,7 @@ import logo from './assets/logo.png';
 function Header() {
   return (
     <header className="wrapper">
-      <h2><img className="logo" src={logo} alt="popsicle logo"/> Popsipoll</h2> 
+      <h2><img className="logo" src={logo} alt="popsicle logo" /> Popsipoll</h2>
       <nav>
         <ul>
           <li><Link to={`/pollbooths`}>Poll Booths</Link></li>

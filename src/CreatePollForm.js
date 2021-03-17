@@ -1,3 +1,4 @@
+//Component that renders create poll form for CreatePoll.js
 function CreatePollForm(props) {
     return (
         <section className="poll">
@@ -7,6 +8,7 @@ function CreatePollForm(props) {
                 <input name="title" id="title" type="text" placeholder="Poll Title" onChange={props.handleChange} value={props.formFields.title} required />
                 <label htmlFor="question" className="sr-only">Question</label>
                 <input name="question" id="question" type="text" placeholder="Question" onChange={props.handleChange} value={props.formFields.question} required />
+
                 {
                     props.options.map((answerName, index) => {
                         return (
@@ -17,10 +19,13 @@ function CreatePollForm(props) {
                         )
                     })
                 }
+
                 <button type='submit'>Create Poll</button>
             </form>
-                <button onClick={props.addOptions}>Add more options</button>
-                <button onClick={() => { props.setPreview(!props.preview) }} input={props.formFields}>Preview Poll</button>
+
+            <button onClick={props.addOptions}>Add more options</button>
+            <button onClick={() => { props.setPreview(!props.preview) }} input={props.formFields}>Preview Poll</button>
+
         </section>
     )
 }

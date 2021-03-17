@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 function PollBooths() {
 
+    //Initialize state to store poll information from firebase
     const [pollList, setPollList] = useState([]);
 
     useEffect(() => {
@@ -29,13 +30,10 @@ function PollBooths() {
                         <div className="pollBooth" key={key.uniqueKey}>
                             <Link to={`/votepoll/${key.uniqueKey}`} className="link">
                                 <h2>{key.title}</h2>
-                                {/* <h2>{key.question}</h2> */}
                             </Link>
                         </div>
                     )
                 })
-
-
             }
         </section>
     )

@@ -15,8 +15,7 @@ function App() {
       <div className="App container">
         <Header />
         <main className="wrapper">
-          {/* <Route exact path="/" component={CreatePoll} /> */}
-          <Route exact path="/" render={() => <CreatePoll firebase={firebase}/> } />
+          <Route exact path="/" render={() => <CreatePoll firebase={firebase} />} />
           <Route path="/sharepoll/:uniqueKey" component={SharePoll} />
           <Route path="/votepoll/:uniqueKey" component={VotePoll} />
           <Route path="/results/:uniqueKey" component={Results} />

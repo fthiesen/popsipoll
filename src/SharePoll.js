@@ -3,12 +3,14 @@ function SharePoll(props) {
     const baseUrl = window.location.origin;
     const newUrl = baseUrl + "/votepoll/" + props.match.params.uniqueKey;
 
+    //Function to copy url for creator to share poll
     const copyUrl = () => {
         const text = document.getElementById("newUrl");
         text.select();
         document.execCommand("copy");
     }
 
+    //Function to redirect to VotePoll.js
     const redirect = () => {
         window.location.replace(newUrl);
     }

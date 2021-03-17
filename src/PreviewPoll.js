@@ -1,3 +1,4 @@
+//Component for creator to view poll before submitting poll
 function PreviewPoll(props) {
 
     return (
