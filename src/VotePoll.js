@@ -5,6 +5,7 @@ function VotePoll(props) {
 
     const [poll, setPoll] = useState("");
     const [answers, setAnswers] = useState("");
+    const [answersNames, setAnswersNames] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const key = props.match.params.uniqueKey;
@@ -15,40 +16,38 @@ function VotePoll(props) {
         const dbRef = firebase.database().ref("polls").child(key);
 
         dbRef.once('value', (data) => {
-            setPoll(data.val());
+            const pollData = data.val();
+            setPoll(pollData);
             setIsLoading(false);
+            const answersNames = Object.keys(pollData.answers);
+            setAnswersNames(answersNames);
         })
-
     }, [props.match.params]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (localStorage.getItem(localStorageKey) !== props.match.params.uniqueKey) {
 
             localStorage.setItem(localStorageKey, props.match.params.uniqueKey);
-            
-            const copiedPoll = {...poll};
-            let answerCount = 0;
 
-            if(answers === "option1") {
-                answerCount = poll.answers.option1.votes;
-                answerCount++;
-                copiedPoll.answers.option1.votes = answerCount;
-            }else {
-                answerCount = poll.answers.option2.votes;
-                answerCount++;
-                copiedPoll.answers.option2.votes = answerCount;
+            const copiedPoll = {...poll};
+            
+            for ( let answer in copiedPoll.answers) {
+                if ( answers === answer ) {
+                    copiedPoll.answers[answer].votes++;
+                }
             }
-        
+
             const dbRef = firebase.database().ref("polls").child(key);
             dbRef.set(copiedPoll);
 
+            console.log(`/results/${key}`);
             dbRef.on('value', () => {
                 window.location.replace(`/results/${key}`);
             });
-
-        }else {
+        
+        } else {
             alert("You already voted for this question!");
         }
 
@@ -57,7 +56,7 @@ function VotePoll(props) {
     const handleChange = (e) => {
         setAnswers(e.target.id);
     }
-
+    
     return (
         <section className="poll">
             {
@@ -69,14 +68,16 @@ function VotePoll(props) {
                     <h1>{poll.title}</h1> 
                     <form onSubmit={handleSubmit}>
                         <h2>{poll.question}</h2>
-                            <div className="radio">
-                                <input type="radio" id="option1" name="option" value={poll.answers.option1.title} required onChange={handleChange} />
-                                <label htmlFor="option1">{poll.answers.option1.title}</label>
-                            </div>
-                            <div className="radio">
-                                <input type="radio" id="option2" name="option" value={poll.answers.option2.title} required onChange={handleChange}/>
-                                <label htmlFor="option2">{poll.answers.option2.title}</label>
-                            </div>
+                        {
+                            answersNames.map((answerName, index) => {
+                                return (
+                                    <div className="radio" key={index}>
+                                        <input type="radio" id={answerName} name="option" value={poll.answers[answerName].title} required onChange={handleChange} />
+                                        <label htmlFor={answerName}>{poll.answers[answerName].title}</label>
+                                    </div>
+                                )
+                            })
+                        }
                         <button>Vote</button>
                     </form>
                     </>
