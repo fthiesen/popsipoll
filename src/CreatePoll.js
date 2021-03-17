@@ -1,9 +1,10 @@
-import firebase from 'firebase';
 import { useState } from 'react';
 import CreatePollForm from "./CreatePollForm";
 import PreviewPoll from "./PreviewPoll";
 
-function CreatePoll() {
+function CreatePoll(props) {
+
+    const { firebase } = props;
 
     const [preview, setPreview] = useState(false);
     const [formFields, setFormFields] = useState({
@@ -24,8 +25,7 @@ function CreatePoll() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const dbRef = firebase.database().ref('polls');
-
+        const dbRef = firebase.database().ref("polls");
         const firebaseReturn = dbRef.push(formFields);
 
         const pollKey = firebaseReturn.key;
