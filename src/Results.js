@@ -5,6 +5,7 @@ function Results(props) {
 
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [answersNames, setAnswersNames] = useState([]);
     
     useEffect(() => {   
         const key = props.match.params.uniqueKey;
@@ -12,15 +13,19 @@ function Results(props) {
         const dbRef = firebase.database().ref("polls").child(key);
         
         dbRef.once('value', (data) => {
-            setPoll(data.val());
+            const pollData = data.val();
+            setPoll(pollData);
             setIsLoading(false);
-        }); 
-        
+            const answersNames = Object.keys(pollData.answers);
+            setAnswersNames(answersNames);
+        })
     }, [props.match.params]);
     
-    let totalCount;
+    let totalCount = 0;
     if (poll) {
-        totalCount = poll.answers.option1.votes + poll.answers.option2.votes;
+        for ( let answer in poll.answers ) {
+            totalCount = totalCount + poll.answers[answer].votes;
+        }
     }
 
     return (
@@ -37,8 +42,13 @@ function Results(props) {
                         <h3>Results</h3>
                         <p><span className="bold">Number of Voters:</span> {totalCount}</p>
                         <p><span className="bold">{poll.question}</span></p>
-                        <p>{poll.answers.option1.title}: {poll.answers.option1.votes}</p>
-                        <p>{poll.answers.option2.title}: {poll.answers.option2.votes}</p>
+                        {
+                            answersNames.map((answerName, index) => {
+                                    return (
+                                        <p key={index}>{poll.answers[answerName].title}: {poll.answers[answerName].votes}</p>
+                                    )
+                            })
+                        }
                     </div>
                     </>
             }

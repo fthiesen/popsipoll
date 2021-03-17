@@ -19,6 +19,8 @@ function CreatePoll() {
         }
     });
 
+    const [ options, setOptions ] = useState(["option1", "option2"]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -51,7 +53,24 @@ function CreatePoll() {
     }
 
     const addOptions = () => {
-        console.log('add option');
+        const answers = Object.keys(formFields.answers);
+        const newOption = `option${answers.length + 1}`;
+        answers.push(newOption);
+        setOptions(answers);
+
+        setFormFields({
+            ...formFields,
+            answers: {
+                ...formFields.answers,
+                [newOption]: {
+                    title: '',
+                    votes: 0
+                }
+            }
+        });
+
+        console.log(formFields);
+        console.log(options);
     }
 
     return (
