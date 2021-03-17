@@ -16,6 +16,8 @@ function CreatePoll() {
         }
     });
 
+    const [ options, setOptions ] = useState([]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -43,15 +45,33 @@ function CreatePoll() {
             answers: {
                 ...formFields.answers,
                 [e.target.name]: {
-                title: e.target.value,
-                votes: 0
+                    title: e.target.value,
+                    votes: 0
                 }
             }
         });
     }
 
     const addOptions = () => {
-        console.log('add option');
+        const answers = Object.keys(formFields.answers);
+        const optionNumber = answers.length;
+        const newOption = {}
+        newOption.option3 = { title: '', votes: 0}
+
+        setFormFields({
+            ...formFields,
+            answers: {
+                ...formFields.answers,
+                option3: {
+                    title: '',
+                    votes: 0
+                }
+            }
+        });
+        // answers.push(newOption)
+        console.log(answers);
+        // const newOptions = options + 1;
+        // setOptions(newOptions);
     }
 
     return (
@@ -63,9 +83,9 @@ function CreatePoll() {
                 <label htmlFor="question" className="sr-only">Question</label>
                 <input name="question" id="question" type="text" placeholder="Question" onChange={handleChange} value={formFields.question} required />
                 <label htmlFor="option1" className="sr-only">Option1</label>
-                <input type="text" name="option1" id="0" className="option" placeholder="Yes" value={formFields.answers.option1.title?formFields.answers.option1.title:""} onChange={handleChangeAnswers} />
-                <label htmlFor="option2" className="sr-only">Option2</label>
-                <input type="text" name="option2" id="1" className="option" placeholder="No" value={formFields.answers.option2.title?formFields.answers.option2.title:""} onChange={handleChangeAnswers} />
+                <input type="text" name="option1" id="option1" className="option" placeholder="Yes" value={formFields.answers.option1.title?formFields.answers.option1.title:""} onChange={handleChangeAnswers} />
+                <label htmlFor="option1" className="sr-only">Option2</label>
+                <input type="text" name="option2" id="option1" className="option" placeholder="No" value={formFields.answers.option2.title?formFields.answers.option2.title:""} onChange={handleChangeAnswers} />
                 <button type='submit'>Create Poll</button>
             </form>
             <button onClick={addOptions}>Add more options</button>
