@@ -5,7 +5,7 @@ function Results(props) {
 
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-
+    const [alertNumber, setAlertNumber] = useState(5);
     
     useEffect(() => {   
         const key = props.match.params.uniqueKey;
@@ -15,7 +15,28 @@ function Results(props) {
         dbRef.once('value', (data) => {
             setPoll(data.val());
             setIsLoading(false);
-        })
+        }); 
+        
+        // const script = document.createElement('script');
+
+        // script.src = "https://smtpjs.com/v3/smtp.js";
+        // script.async = true;
+
+        // console.log(poll);
+
+        // window.Email.send({
+        //     Host: "smtp.yourisp.com",
+        //     Username: "username",
+        //     Password: "password",
+        //     To: 'jakejonggubaek@gmail.com',
+        //     From: "no-reply@popsipoll.com",
+        //     Subject: "Reminder for your poll",
+        //     Body: `${alertNumber} people voted so far!`
+        // }).then(
+        //     message => alert(message)
+        // );
+
+
     }, [props.match.params]);
     
     let totalCount;
