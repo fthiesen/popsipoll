@@ -5,7 +5,6 @@ function Results(props) {
 
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-    const [alertNumber, setAlertNumber] = useState(5);
     
     useEffect(() => {   
         const key = props.match.params.uniqueKey;
