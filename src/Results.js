@@ -5,7 +5,6 @@ function Results(props) {
 
     const [poll, setPoll] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-
     
     useEffect(() => {   
         const key = props.match.params.uniqueKey;
@@ -15,7 +14,8 @@ function Results(props) {
         dbRef.once('value', (data) => {
             setPoll(data.val());
             setIsLoading(false);
-        })
+        }); 
+        
     }, [props.match.params]);
     
     let totalCount;
