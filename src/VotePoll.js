@@ -8,13 +8,13 @@ function VotePoll(props) {
     const [answersNames, setAnswersNames] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const key = props.match.params.uniqueKey;
+    
     const localStorageKey = "PopsiPoll_key"
     
     useEffect(() => {
-    
-        const dbRef = firebase.database().ref("polls").child(key);
-
+        const pollKey = props.match.params.uniqueKey;
+        const dbRef = firebase.database().ref("polls").child(pollKey);
+        
         dbRef.once('value', (data) => {
             const pollData = data.val();
             setPoll(pollData);
@@ -22,14 +22,16 @@ function VotePoll(props) {
             const answersNames = Object.keys(pollData.answers);
             setAnswersNames(answersNames);
         })
-    }, [props.match.params]);
+    }, [props.match.params.uniqueKey]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (localStorage.getItem(localStorageKey) !== props.match.params.uniqueKey) {
+        const key = props.match.params.uniqueKey;
 
-            localStorage.setItem(localStorageKey, props.match.params.uniqueKey);
+        if (localStorage.getItem(localStorageKey) !== key) {
+
+            localStorage.setItem(localStorageKey, key);
 
             const copiedPoll = {...poll};
             

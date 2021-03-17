@@ -73,8 +73,9 @@ function CreatePoll() {
     return (
         <>
             {
-                preview ? <PreviewPoll formFields={formFields} preview={preview} setPreview={setPreview} /> :
-                    <CreatePollForm handleSubmit={handleSubmit} handleChange={handleChange} handleSubmit={handleSubmit} formFields={formFields} preview={preview} setPreview={setPreview} handleChangeAnswers={handleChangeAnswers} addOptions={addOptions} options={options} />
+                preview ? <PreviewPoll formFields={formFields} preview={preview} setPreview={setPreview} /> 
+                    :
+                    <CreatePollForm handleSubmit={handleSubmit} handleChange={handleChange} formFields={formFields} preview={preview} setPreview={setPreview} handleChangeAnswers={handleChangeAnswers} addOptions={addOptions} options={options} />
             }
         </>
     )

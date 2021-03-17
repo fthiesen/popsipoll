@@ -10,6 +10,8 @@ import Results from "./Results";
 import PollBooths from "./PollBooths";
 
 function App() {
+  firebase.database().ref();
+  
   return (
     <Router>
       <div className="App container">
