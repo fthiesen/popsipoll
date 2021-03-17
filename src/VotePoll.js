@@ -8,6 +8,7 @@ function VotePoll(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     const key = props.match.params.uniqueKey;
+    const localStorageKey = "PopsiPoll_key"
     
     useEffect(() => {
     
@@ -17,31 +18,39 @@ function VotePoll(props) {
             setPoll(data.val());
             setIsLoading(false);
         })
+
     }, [props.match.params]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        if (localStorage.getItem(localStorageKey) !== props.match.params.uniqueKey) {
 
-        const copiedPoll = {...poll};
-        let answerCount = 0;
+            localStorage.setItem(localStorageKey, props.match.params.uniqueKey);
+            
+            const copiedPoll = {...poll};
+            let answerCount = 0;
 
-        if(answers === "option1") {
-            answerCount = poll.answers.option1.votes;
-            answerCount++;
-            copiedPoll.answers.option1.votes = answerCount;
+            if(answers === "option1") {
+                answerCount = poll.answers.option1.votes;
+                answerCount++;
+                copiedPoll.answers.option1.votes = answerCount;
+            }else {
+                answerCount = poll.answers.option2.votes;
+                answerCount++;
+                copiedPoll.answers.option2.votes = answerCount;
+            }
+        
+            const dbRef = firebase.database().ref("polls").child(key);
+            dbRef.set(copiedPoll);
+
+            dbRef.on('value', () => {
+                window.location.replace(`/results/${key}`);
+            });
+
         }else {
-            answerCount = poll.answers.option2.votes;
-            answerCount++;
-            copiedPoll.answers.option2.votes = answerCount;
+            alert("You already voted for this question!");
         }
-
-        const dbRef = firebase.database().ref("polls").child(key);
-        dbRef.set(copiedPoll);
-
-        console.log(`/results/${key}`);
-        dbRef.on('value', () => {
-            window.location.replace(`/results/${key}`);
-        });
 
     }
 
