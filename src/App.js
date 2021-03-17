@@ -4,16 +4,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import CreatePoll from './CreatePoll';
 import SharePoll from './SharePoll';
-import { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import VotePoll from "./VotePoll";
 import Results from "./Results";
 import PollBooths from "./PollBooths";
 
 function App() {
-
-  
-
   return (
     <Router>
       <div className="App container">

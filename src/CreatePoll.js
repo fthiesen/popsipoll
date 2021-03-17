@@ -68,16 +68,13 @@ function CreatePoll() {
                 }
             }
         });
-
-        console.log(formFields);
-        console.log(options);
     }
 
     return (
         <>
             {
                 preview ? <PreviewPoll formFields={formFields} preview={preview} setPreview={setPreview} /> :
-                    <CreatePollForm handleSubmit={handleSubmit} handleChange={handleChange} handleSubmit={handleSubmit} formFields={formFields} preview={preview} setPreview={setPreview} handleChangeAnswers={handleChangeAnswers} />
+                    <CreatePollForm handleSubmit={handleSubmit} handleChange={handleChange} handleSubmit={handleSubmit} formFields={formFields} preview={preview} setPreview={setPreview} handleChangeAnswers={handleChangeAnswers} addOptions={addOptions} options={options} />
             }
         </>
     )
