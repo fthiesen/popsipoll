@@ -65,7 +65,7 @@ function VotePoll(props) {
     }
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             {
                 isLoading ? <h2>Loading poll...</h2>
                     :

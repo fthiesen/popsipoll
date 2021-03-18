@@ -2,7 +2,7 @@
 function PreviewPoll(props) {
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             <h1>{props.formFields.title}</h1>
             <form>
                 <h2>{props.formFields.question}</h2>

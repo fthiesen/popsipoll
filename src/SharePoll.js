@@ -17,7 +17,7 @@ function SharePoll(props) {
     }
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             <h1>Congrats!</h1>
             <h2>Your poll was created successfully</h2>
             <p>Share your poll with friends:</p>

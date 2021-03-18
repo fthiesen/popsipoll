@@ -33,7 +33,7 @@ function CreatePollForm(props) {
     }
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             <h1>Create A Poll</h1>
             <form onSubmit={props.handleSubmit}>
                 <label htmlFor="title" className="sr-only">Poll Title</label>
