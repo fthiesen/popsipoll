@@ -16,8 +16,8 @@ function PreviewPoll(props) {
                         )
                     })
                 }
-                <button onClick={()=>{alert("This is just a preview. You cannot vote in the preview.")}}>Vote</button>
             </form>
+                <button onClick={()=>{alert("This is just a preview. You cannot vote in the preview.")}}>Vote</button>
             <button className="backButton" onClick={() => { props.setPreview(!props.preview) }}>Back</button>
         </section>
     )
