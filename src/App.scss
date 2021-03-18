@@ -78,11 +78,19 @@ header {
     }
   }
 
+  nav {
+    @include mobileMQ {
+      width: 100%;
+    }
+  }
+
   ul {
     display: flex;
+    align-items: center;
 
     @include mobileMQ {
       margin-bottom: 20px;
+      justify-content: space-around;
     }
     
     li {
@@ -90,13 +98,18 @@ header {
 
       @include mobileMQ {
         margin-left: 0;
-        padding: 0 15px;
+        padding: 0 5px;
+        font-size: 1.25rem;
       }
 
       a {
         padding: 10px 0 3px;
         text-decoration: none;
         color: $grey;
+
+        @include mobileMQ {
+          padding: 0;
+        }
 
       }
 
@@ -140,6 +153,7 @@ main {
 
   @include mobileMQ {
     margin-left: 10px;
+    margin-top: 20px;
   }
 
   form {
@@ -269,5 +283,61 @@ footer {
 
   p {
     text-align: center;
+  }
+}
+
+.theme-button {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: $red;
+  transition: all .2s ease-in-out;
+  &:hover {
+    background-color: $indigo;
+    color: white;
+  }
+}
+
+.dark-theme-body {
+  transition: all .4s ease-in-out;
+  background-color: $indigo;
+  color: rgb(255, 255, 255);
+
+  header {
+  background-color: $indigo;
+  color: rgb(255, 255, 255);
+  }
+
+  a {
+    color: white;
+  }
+
+  button {
+    color: $indigo;
+    background-color: $lightgreen;
+    &:hover {
+      background-color: $violet;
+    }
+  }
+
+  .poll {
+    color: $indigo;
+    background-color: $violet;
+    box-shadow: -10px 10px $lightgreen;
+
+    input[type="text"] {
+      border: 2px solid $indigo;
+      background-color: $lightgreen;
+    }
+    
+    button:hover {
+      color: white;
+      background-color: $indigo;
+    }
+  }
+
+  .results {
+  background-color: $lightgreen;
+  border: 2px solid $indigo;
   }
 }
