@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase";
 import { Link } from 'react-router-dom';
 
+//Component to render list of polls 
 function PollBooths() {
 
     //Initialize state to store poll information from firebase

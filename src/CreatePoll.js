@@ -83,7 +83,7 @@ function CreatePoll(props) {
     return (
         <>
             {
-                preview ? <PreviewPoll formFields={formFields} preview={preview} setPreview={setPreview} />
+                preview ? <PreviewPoll formFields={formFields} preview={preview} setPreview={setPreview} answersNames={answersNames}/>
                     :
                     <CreatePollForm handleSubmit={handleSubmit} handleChange={handleChange} formFields={formFields} preview={preview} setPreview={setPreview} handleChangeAnswers={handleChangeAnswers} addOptions={addOptions} options={answersNames} />
             }

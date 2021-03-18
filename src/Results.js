@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import firebase from "firebase";
 
+//Component to render results of poll to user after voting
 function Results(props) {
 
     //Initialize state to store poll information from firebase

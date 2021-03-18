@@ -1,5 +1,37 @@
 //Component that renders create poll form for CreatePoll.js
 function CreatePollForm(props) {
+
+    //Check to see if inputs are empty
+    const checkInputs = () => {
+        if (props.formFields.title === "" || props.formFields.question === "") {
+            return false;
+        }
+
+        let empty = true;
+        for (const answer in props.formFields.answers) {
+            if (props.formFields.answers[answer].title === "") {
+                empty = true;
+            } else {
+                empty = false
+            }
+        }
+
+        if (empty === true) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //Checks to see if inputs are empty, if not show preview poll component
+    const previewPoll = () => {
+        if (checkInputs() === true) {
+            props.setPreview(!props.preview)
+        } else {
+            alert("Please fill out form.");
+        }
+    }
+
     return (
         <section className="poll">
             <h1>Create A Poll</h1>
@@ -24,7 +56,7 @@ function CreatePollForm(props) {
             </form>
 
             <button onClick={props.addOptions}>Add more options</button>
-            <button onClick={() => { props.setPreview(!props.preview) }} input={props.formFields}>Preview Poll</button>
+            <button onClick={previewPoll} input={props.formFields} >Preview Poll</button>
 
         </section>
     )

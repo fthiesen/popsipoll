@@ -1,3 +1,4 @@
+//Component to render poll after creation of poll and displays link to share
 function SharePoll(props) {
 
     const baseUrl = window.location.origin;

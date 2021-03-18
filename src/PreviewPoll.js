@@ -6,17 +6,19 @@ function PreviewPoll(props) {
             <h1>{props.formFields.title}</h1>
             <form>
                 <h2>{props.formFields.question}</h2>
-                <div className="radio">
-                    <input type="radio" id="option1" name="option" value={props.formFields.answers.option1.title} required />
-                    <label htmlFor="option1">{props.formFields.answers.option1.title}</label>
-                </div>
-                <div className="radio">
-                    <input type="radio" id="option2" name="option" value={props.formFields.answers.option2.title} required />
-                    <label htmlFor="option2">{props.formFields.answers.option2.title}</label>
-                </div>
-                <button>Vote</button>
-                <button className="backButton" onClick={() => { props.setPreview(!props.preview) }}>Back</button>
+                {
+                    props.answersNames.map((answerName, index) => {
+                        return (
+                            <div className="radio" key={index}>
+                                <input type="radio" id={answerName} name="option" value={props.formFields.answers[answerName].title} required />
+                                <label htmlFor={answerName}>{props.formFields.answers[answerName].title}</label>
+                            </div>
+                        )
+                    })
+                }
+                <button onClick={()=>{alert("This is just a preview. You cannot vote in the preview.")}}>Vote</button>
             </form>
+            <button className="backButton" onClick={() => { props.setPreview(!props.preview) }}>Back</button>
         </section>
     )
 }
