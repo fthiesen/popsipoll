@@ -13,7 +13,7 @@ function VotePoll(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     //Key to store in local storage
-    const localStorageKey = "PopsiPoll_key"
+    const localStorageKey = props.match.params.uniqueKey;
 
     useEffect(() => {
         const pollKey = props.match.params.uniqueKey;
