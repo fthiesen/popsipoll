@@ -55,7 +55,7 @@ This application will provide several functions to allow users create a poll boo
 <br/>
 
 <h2>View Page</h2>
-<img src="./src/assets/poll5.png">
+<img src="./src/assets/poll7.png">
 <p>1. User can see other poll booth created. </p>
 <br/>
 
