@@ -2,7 +2,7 @@
 function PreviewPoll(props) {
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             <h1>{props.formFields.title}</h1>
             <form>
                 <h2>{props.formFields.question}</h2>
@@ -16,8 +16,8 @@ function PreviewPoll(props) {
                         )
                     })
                 }
-                <button onClick={()=>{alert("This is just a preview. You cannot vote in the preview.")}}>Vote</button>
             </form>
+                <button onClick={()=>{alert("This is just a preview. You cannot vote in the preview.")}}>Vote</button>
             <button className="backButton" onClick={() => { props.setPreview(!props.preview) }}>Back</button>
         </section>
     )

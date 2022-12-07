@@ -33,7 +33,7 @@ function Results(props) {
     }
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             {
                 isLoading ? <h2>Loading results...</h2>
                     :

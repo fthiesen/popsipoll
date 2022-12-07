@@ -13,7 +13,7 @@ function VotePoll(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     //Key to store in local storage
-    const localStorageKey = "PopsiPoll_key"
+    const localStorageKey = props.match.params.uniqueKey;
 
     useEffect(() => {
         const pollKey = props.match.params.uniqueKey;
@@ -65,7 +65,7 @@ function VotePoll(props) {
     }
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             {
                 isLoading ? <h2>Loading poll...</h2>
                     :

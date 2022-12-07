@@ -23,7 +23,7 @@ function PollBooths() {
 
 
     return (
-        <section className="poll">
+        <section className="poll" id="main-content">
             <h1>Poll Booths</h1>
             {
                 pollList.map((key) => {

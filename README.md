@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+<div align="center"><img src="./src/assets/logo.png" width="200px"></div>
+<h1 align="center">Popsipoll</h1>
+<p align="center"><strong>Create a survey and let your participants vote anonymously.</strong>
+</p>
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>About</h2>
+Anonymous poll web application built with React, SASS, and Firebase.<br/>
+LIVE DEMO :https://popsipoll.netlify.app/
+<br/>
 
-## Available Scripts
+<h2>Purpose</h2>
+This application will provide several functions to allow users create a poll booth, share the booth url, and vote for the poll.
+<br/>
 
-In the project directory, you can run:
+<h2>Key features</h2>
+<ul>
+<li>Create Page</li>
+<li>Share Page</li>
+<li>Vote Page</li>
+<li>Result Page</li>
+<li>View Page</li>
+<li>Dark Mode</li>
+</ul>
+<br/>
 
-### `npm start`
+<h2>Design and requirements</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h2>Create Page</h2>
+<img src="./src/assets/poll1.png">
+<p>1. Poll title input box: User can name the poll booth. </p>
+<p>2. Question input box: User can type the question for the poll. </p>
+<p>3. Answer input boxes: User can type the answer options for the question. </p>
+<p>4. Create Poll button: Submit button to create a poll booth. </p>
+<p>5. Add More Options button: Click button to add more answer options. </p>
+<p>6. Preview button: Submit button to preview a poll booth before submitting. </p>
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h2>Share Page</h2>
+<img src="./src/assets/poll2.png">
+<p>1. URL box: unique url for the poll booth just made </p>
+<p>2. Copy URL button: Click button to allow user can easily copy the unique URL in the box above.</p>
+<p>3. Vote button: Submit button to send user to the poll booth page to vote.</p>
+<br/>
 
-### `npm test`
+<h2>Vote Page</h2>
+<img src="./src/assets/poll3.png">
+<p>1. Poll info display: user can see poll title, question, and answer options. </p>
+<p>2. Vote button: Submit button to finalize the vote.</p>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>Result Page</h2>
+<img src="./src/assets/poll4.png">
+<p>1. Result for the poll display: user can see how many people voted for each answer.</p>
+<br/>
 
-### `npm run build`
+<h2>View Page</h2>
+<img src="./src/assets/poll7.png">
+<p>1. User can see other poll booth created. </p>
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Dark Mode</h2>
+<img src="./src/assets/poll6.png">
+<p>1. Darl/Light button: user can change the colour theme as they wish. </p>
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Copyright</h2>
+This project is licensed under the terms of the MIT license.

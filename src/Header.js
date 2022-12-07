@@ -31,6 +31,7 @@ function Header() {
 
   return (
     <header className="wrapper">
+      <a href="#main-content" class="skip-link">Skip to content</a>
       <h2><img className="logo" src={logo} alt="popsicle logo" /> Popsipoll</h2>
       <nav>
         <ul>
