@@ -6,7 +6,7 @@
 
 <h2>About</h2>
 Anonymous poll web application built with React, SASS, and Firebase.<br/>
-LIVE DEMO :https://popsipoll.netlify.app/
+LIVE DEMO: https://popsipoll-juno.netlify.app/
 <br/>
 
 <h2>Purpose</h2>
